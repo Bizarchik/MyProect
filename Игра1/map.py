@@ -9,7 +9,7 @@ from utilis import randcel
 
 
 CELL_TYPE="🟩🌲🌊🏥🚉🔥"
-
+TREE_BONUS=100
 
 class Map:
     
@@ -81,6 +81,20 @@ class Map:
             for i in range(5):
                 
                 self.add_fire()
+    
+    
+    
+    def process_helicopter(self,helico):
+        c=self.cells[helico.x][ helico.y]
+        if(c==2 ):
+             helico.tenk=helico.mxtenk
+        elif(c==5 and helico.tenk>0):
+            helico.tenk-=1
+            self.score += 100
+            c=self.cells[helico.x][ helico.y]=1
+            
+            
+                    
                                       
     
                       
